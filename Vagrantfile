@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "kubernetes" do |kubernetes|
-    kubernetes.vm.network "public_network"
+    kubernetes.vm.network "private_network"
 
     kubernetes.vm.provision "shell", 
     inline:'apt-get update && \
