@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Hello World!" >> /usr/local/apache2/htdocs/hello-world.txt
+exec httpd -DFOREGROUND "$@"

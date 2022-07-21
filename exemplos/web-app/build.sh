@@ -11,9 +11,9 @@ minikube docker-env
 eval $(minikube -p minikube docker-env)
 
 # Compilar uma imagem Docker a partir do app e subir no K8s.
-docker build -t web-app .
+docker build --no-cache -t web-app .
 kubectl create -f deployment.yml
-minikube service frontend --url
+minikube service web-app --url
 
 # Para subir a aplicação diretamente no Docker sem o K8s.
 # docker run -dit --name web-app -p 8080:8080 -v "${PWD}"/dist/web-app/:/usr/local/apache2/htdocs -v "$PWD"/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf httpd:latest
