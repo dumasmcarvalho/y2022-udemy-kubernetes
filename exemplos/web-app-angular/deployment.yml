@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: web-app
+  name: web-app-angular
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web-app
+      app: web-app-angular
   template:
     metadata:
       labels:
-        app: web-app
+        app: web-app-angular
     spec:
       containers:
-        - name: web-app
-          image: web-app
+        - name: web-app-angular
+          image: web-app-angular
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
@@ -25,7 +25,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: web-app
+  name: web-app-angular
 spec:
   type: NodePort
   ports:
@@ -33,4 +33,4 @@ spec:
       targetPort: 8080
       nodePort: 31000
   selector:
-    app: web-app
+    app: web-app-angular
